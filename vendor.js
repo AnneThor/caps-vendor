@@ -5,10 +5,13 @@ const faker = require('faker');
 const io = require('socket.io-client');
 
 const port = process.env.PORT || 3000;
-let storeName = process.env.STORE_NAME || `Generic Store`;
+let storeName = `1-206-flowers`;
+let storeId = faker.datatype.number().toString();
 
 const host = `http://localhost:${port}/caps`;
 const socket = io.connect(host);
+
+socket.emit('join', storeId);
 
 socket.on('delivered', thankYou)
 
@@ -16,7 +19,8 @@ function orderGenerator() {
   setInterval( () => {
     let order = {
       storeName: storeName,
-      orderId: faker.datatype.uuid(),
+      storeId: storeId,
+      orderID: faker.datatype.uuid(),
       customerName: faker.name.findName(),
       address: faker.address.streetAddress(),
     }
@@ -26,7 +30,7 @@ function orderGenerator() {
 }
 
 function thankYou(payload) {
-  console.log(`VENDOR: Thank you for delivering ${payload.orderId}!`);
+  console.log(`VENDOR: Thank you for delivering ${payload.orderID}!`);
 }
 
 orderGenerator();
