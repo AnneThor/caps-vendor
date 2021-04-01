@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv).config();
+require('dotenv').config();
 const faker = require('faker');
 const io = require('socket.io-client');
 
