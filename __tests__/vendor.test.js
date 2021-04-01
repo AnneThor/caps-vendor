@@ -38,7 +38,7 @@ describe("VENDOR functionality", () => {
     jest.advanceTimersByTime(5000);
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenCalledWith(`VENDOR: Thank you for delivering ${payload.orderID}!`);
+    expect(spy).toHaveBeenCalledWith(`Thank you for delivering ${payload.orderID}!`);
   })
 
 })
