@@ -38,4 +38,5 @@ orderGenerator();
 module.exports = {
   makeOrders: orderGenerator,
   thank: thankYou,
+  socket: socket
 }
