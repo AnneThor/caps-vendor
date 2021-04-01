@@ -1,0 +1,23 @@
+{
+  "name": "caps-vendor",
+  "version": "1.0.0",
+  "description": "Mimics functionality of vendors in parcel delivery service",
+  "main": "vendor.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnneThor/caps-vendor.git"
+  },
+  "author": "Anne Thorsteinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnneThor/caps-vendor/issues"
+  },
+  "homepage": "https://github.com/AnneThor/caps-vendor#readme",
+  "dependencies": {
+    "faker": "^5.5.2",
+    "socket.io-client": "^2.4.0"
+  }
+}
