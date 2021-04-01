@@ -5,23 +5,23 @@ const faker = require('faker');
 const io = require('socket.io-client');
 
 const port = process.env.PORT || 3000;
-let storeName = `1-206-flowers`;
-let storeId = process.env.STORE_ID || faker.datatype.number().toString();
+let store = "1-206-flowers";
+// let storeId = process.env.STORE_ID || faker.datatype.number().toString();
 
 const host = `http://localhost:${port}/caps`;
 const socket = io.connect(host);
 
-socket.emit('join', storeId);
+socket.emit('join', store);
 
 socket.on('delivered', thankYou)
 
 function orderGenerator() {
   setInterval( () => {
     let order = {
-      storeName: storeName,
-      storeId: storeId,
+      store: store,
+      // storeId: storeId,
       orderID: faker.datatype.uuid(),
-      customerName: faker.name.findName(),
+      customer: faker.name.findName(),
       address: faker.address.streetAddress(),
     }
     socket.emit('pickup', order )
